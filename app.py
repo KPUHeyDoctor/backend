@@ -14,11 +14,13 @@ def test():
 def insert():
     
     if request.method == 'POST':
+        id = request.form['id']
         name = request.form['name']
         email = request.form['email']
         gender = request.form['optradio']
         comment = request.form['comment']
-        db.insert_details(name,email,comment,gender)
+        id = int(id)
+        db.insert_details(id,name,email,comment,gender)
         details = db.get_details()
         print(details)
         for detail in details:

@@ -1,11 +1,16 @@
-
 import pymysql
+from dotenv import load_dotenv
+load_dotenv()
+import os
+DB_HOST= os.getenv('DB_HOST')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD=os.getenv('DB_PASSWORD')
 conn = pymysql.connect(
-        host= '', #endpoint link
-        port = '', # 3306
-        user = '', # admin
-        password = '', #adminpassword
-        db = '', #test
+        host = DB_HOST, #endpoint link
+        port = 3306, # 3306
+        user = DB_USER, # admin
+        password = DB_PASSWORD, #adminpassword
+        db = 'test', #test
         
         )
 
@@ -18,9 +23,9 @@ conn = pymysql.connect(
 #cursor.execute(create_table)
 
 
-def insert_details(name,email,comment,gender):
+def insert_details(id,name,email,comment,gender):
     cur=conn.cursor()
-    cur.execute("INSERT INTO Details (name,email,comment,gender) VALUES (%s,%s,%s,%s)", (name,email,comment,gender))
+    cur.execute("INSERT INTO Details (id,name,email,comment,gender) VALUES (%s, %s,%s,%s,%s)", (id,name,email,comment,gender))
     conn.commit()
 
 def get_details():
