@@ -1,14 +1,18 @@
-from flask import Flask
-from flask import request
+from flask import Flask,request,jsonify
 
 
 app = Flask(__name__)
 
 import rds_db as db
 
-@app.route("/")
+@app.route("/test")
 def test():
+   print (test)
    return 'test'
+
+@app.route("/api/hospitals/<param>")
+def testapi(param):
+    return jsonify({"param": param})
 
 @app.route('/insert',methods = ['post'])
 def insert():
@@ -27,6 +31,5 @@ def insert():
             var = detail
         return 'ok' 
         
-
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0' ,port = 5001, debug=True)
