@@ -10,9 +10,9 @@ def test():
    print (test)
    return 'test'
 
-@app.route("/api/hospitals/<param>")
-def testapi(param):
-    return jsonify({"param": param})
+@app.route("/api/hospitals")
+def testapi():
+    return jsonify({"param": "test1"})
 
 @app.route('/insert',methods = ['post'])
 def insert():
