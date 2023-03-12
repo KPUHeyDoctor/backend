@@ -1,10 +1,9 @@
 from flask import Flask,request,jsonify
-
-
+import rds_db as db
+from flask_cors import CORS
 app = Flask(__name__)
 
-import rds_db as db
-
+CORS(app)
 @app.route("/test")
 def test():
    print (test)
