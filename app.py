@@ -7,31 +7,91 @@ app = Flask(__name__)
 CORS(app)
 
 
+# 전체 병원
 @app.route("/api/hospitals")
 def home():
-    sql = 'select * from hospital where sigun_nm="시흥시";'
+    # sql = 'select * from hospital where sigun_nm="시흥시";'
+    # sql = 'SELECT * FROM heydoctor.hospital_json where SIGUN_NM="시흥시";'
+    sql = 'SELECT * FROM heydoctor.hospital_json;'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data = conn.fetch()
     del conn
 
-    json_dict = json.dumps(data, ensure_ascii=False)  # json.dumps()로 파이썬 객체 -> json 객체로
+    with open('output.json', 'w') as f:
+        json.dump(data, f)
 
-    json_obj = json.loads(json_dict)  # json.loads()로 json객체 -> 파이썬 객체로
-    json_result = json_obj[3]  # json.loads()의 결과는 파이썬의 리스트 객체이므로, 깔끔한 코드를 위해 json_obj[0]을 할당
-    print('위도: ', json_result['REFINE_WGS84_LAT'])
-    print('경도: ', json_result['REFINE_WGS84_LOGT'])  # json_result['key값'] -> value 출력
-    print('이름: ', json_result['BIZPLC_NM'])
+    # # print(data[0]['TREAT_SBJECT_CONT_INFO'])
+    # if '내과' in data[0]['TREAT_SBJECT_CONT_INFO']:
+    #     print("내과")
+    # else:
+    #     print("")
+    #
+    # if "가정의학과" in data[0]['TREAT_SBJECT_CONT_INFO']:
+    #     print("가정의학과")
 
-    responseBody = [
-        {
-            "name": json_result['BIZPLC_NM'],
-            "lat": float(json_result['REFINE_WGS84_LAT']),
-            "logt": float(json_result['REFINE_WGS84_LOGT']),
-        }
-    ]
+    return jsonify(data)
 
-    return responseBody
+
+# 내과
+@app.route('/api/hospitals/categories/nae')
+def Nae():
+    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%내과%";'
+    conn = db_connect.ConnectDB(sql)
+    conn.execute()
+    data_nae = conn.fetch()
+    del conn
+
+    with open('output.json', 'w') as f:
+        json.dump(data_nae, f)
+
+    return jsonify(data_nae)
+
+
+# 이비인후과
+@app.route('/api/hospitals/categories/ebin')
+def Ebin():
+    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%이비인후과%";'
+    conn = db_connect.ConnectDB(sql)
+    conn.execute()
+    data_ebin = conn.fetch()
+    del conn
+
+    with open('output.json', 'w') as f:
+        json.dump(data_ebin, f)
+
+    return jsonify(data_ebin)
+
+
+# 소아과
+@app.route('/api/hospitals/categories/kids')
+def Kids():
+    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%소아과%";'
+    conn = db_connect.ConnectDB(sql)
+    conn.execute()
+    data_kids = conn.fetch()
+    del conn
+
+    with open('output.json', 'w') as f:
+        json.dump(data_kids, f)
+
+    return jsonify(data_kids)
+
+
+# 정형외과
+@app.route('/api/hospitals/categories/bone')
+def Bone():
+    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%정형외과%";'
+    conn = db_connect.ConnectDB(sql)
+    conn.execute()
+    data_bone = conn.fetch()
+    del conn
+
+    with open('output.json', 'w') as f:
+        json.dump(data_bone, f)
+
+    return jsonify(data_bone)
+
 
 
 if __name__ == '__main__':
