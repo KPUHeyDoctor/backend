@@ -13,7 +13,7 @@ class ConnectDB:
         self.data = None
         # self.conn = pymysql.connect(host='localhost', user='root', password=DB_PASSWORD, db='Heydoctor', charset='utf8',
         #                             autocommit=True)  # DB와 연결합니다.
-        self.conn = pymysql.connect(host='localhost', user='root', password='password', db='Heydoctor', charset='utf8',
+        self.conn = pymysql.connect(host='db', user='heydoctor', password='password', db='HeyDoctor', charset='utf8',
                                     autocommit=True)  # DB와 연결합니다.
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)  # sql문 수행을 위해 cursor 객체를 생성합니다.
 
