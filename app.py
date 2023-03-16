@@ -12,7 +12,7 @@ CORS(app)
 def home():
     # sql = 'select * from hospital where sigun_nm="시흥시";'
     # sql = 'SELECT * FROM heydoctor.hospital_json where SIGUN_NM="시흥시";'
-    sql = 'SELECT * FROM heydoctor.hospital_json;'
+    sql = 'SELECT * FROM hospital_json;'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data = conn.fetch()
