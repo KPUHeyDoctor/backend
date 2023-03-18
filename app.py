@@ -8,27 +8,13 @@ CORS(app)
 
 
 # 전체 병원
-@app.route("/api/hospitals")
+@app.route("/api/hospitals/categories/all")
 def home():
-    # sql = 'select * from hospital where sigun_nm="시흥시";'
-    # sql = 'SELECT * FROM heydoctor.hospital_json where SIGUN_NM="시흥시";'
-    sql = 'SELECT * FROM hospital_json;'
+    sql = 'SELECT * FROM heydoctor.hospital_json;'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data = conn.fetch()
     del conn
-
-    with open('output.json', 'w') as f:
-        json.dump(data, f)
-
-    # # print(data[0]['TREAT_SBJECT_CONT_INFO'])
-    # if '내과' in data[0]['TREAT_SBJECT_CONT_INFO']:
-    #     print("내과")
-    # else:
-    #     print("")
-    #
-    # if "가정의학과" in data[0]['TREAT_SBJECT_CONT_INFO']:
-    #     print("가정의학과")
 
     return jsonify(data)
 
@@ -42,9 +28,6 @@ def Nae():
     data_nae = conn.fetch()
     del conn
 
-    with open('output.json', 'w') as f:
-        json.dump(data_nae, f)
-
     return jsonify(data_nae)
 
 
@@ -56,9 +39,6 @@ def Ebin():
     conn.execute()
     data_ebin = conn.fetch()
     del conn
-
-    with open('output.json', 'w') as f:
-        json.dump(data_ebin, f)
 
     return jsonify(data_ebin)
 
@@ -72,9 +52,6 @@ def Kids():
     data_kids = conn.fetch()
     del conn
 
-    with open('output.json', 'w') as f:
-        json.dump(data_kids, f)
-
     return jsonify(data_kids)
 
 
@@ -86,10 +63,7 @@ def Bone():
     conn.execute()
     data_bone = conn.fetch()
     del conn
-
-    with open('output.json', 'w') as f:
-        json.dump(data_bone, f)
-
+    
     return jsonify(data_bone)
 
 
