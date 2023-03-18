@@ -8,7 +8,7 @@ CORS(app)
 
 
 # 전체 병원
-@app.route("/api/hospitals")
+@app.route("/api/hospitals/categories/all")
 def home():
     # sql = 'select * from hospital where sigun_nm="시흥시";'
     # sql = 'SELECT * FROM heydoctor.hospital_json where SIGUN_NM="시흥시";'
