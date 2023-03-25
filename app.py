@@ -10,7 +10,7 @@ CORS(app)
 # 전체 병원
 @app.route("/api/hospitals/categories/all")
 def home():
-    sql = 'SELECT * FROM heydoctor.hospital_json;'
+    sql = 'SELECT * FROM hospital;'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data = conn.fetch()
@@ -22,7 +22,7 @@ def home():
 # 내과
 @app.route('/api/hospitals/categories/nae')
 def Nae():
-    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%내과%";'
+    sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%내과%";'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data_nae = conn.fetch()
@@ -34,7 +34,7 @@ def Nae():
 # 이비인후과
 @app.route('/api/hospitals/categories/ebin')
 def Ebin():
-    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%이비인후과%";'
+    sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%이비인후과%";'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data_ebin = conn.fetch()
@@ -46,7 +46,7 @@ def Ebin():
 # 소아과
 @app.route('/api/hospitals/categories/kids')
 def Kids():
-    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%소아과%";'
+    sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%소아과%";'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data_kids = conn.fetch()
@@ -58,7 +58,7 @@ def Kids():
 # 정형외과
 @app.route('/api/hospitals/categories/bone')
 def Bone():
-    sql = 'select * from hospital_json where TREAT_SBJECT_CONT_INFO like "%정형외과%";'
+    sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%정형외과%";'
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     data_bone = conn.fetch()
@@ -69,4 +69,4 @@ def Bone():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True) 
