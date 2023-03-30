@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS HeyDoctor;
 USE HeyDoctor
 
 CREATE TABLE hospital (
