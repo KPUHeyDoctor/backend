@@ -8,6 +8,7 @@ CREATE TABLE hospital (
   REFINE_WGS84_LAT text,
   REFINE_WGS84_LOGT text,
   TREAT_SBJECT_CONT_INFO text,
+  LOCPLC_FACLT_TELNO_DTLS text,
   HOS_TIME text
 );
 
