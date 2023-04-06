@@ -85,3 +85,12 @@ INSERT INTO hospital(BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJEC
 INSERT INTO hospital(BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("한사랑요양병원", "37.3432831", "126.7346993", "침구과, 사상체질과, 한방재활의학과, 한방신경정신과, 한방안·이비인후·피부과, 한방소아과, 한방부인과, 한방내과, 외과, 신경외과, 정형외과, 가정의학과, 내과", "경기도 시흥시 중심상가1길 14 (정왕동)", "", "09:00~18:00");
 INSERT INTO hospital(BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("효성요양병원", "37.4422499113", "126.7914998721", "내과, 신경과, 정신건강의학과, 외과, 정형외과, 이비인후과, 피부과, 비뇨의학과, 가정의학과, 한방내과, 한방부인과, 한방안·이비인후·피부과, 한방신경정신과, 한방재활의학과, 사상체질과, 침구과", "경기도 시흥시 비둘기공원6길 13-1, 8층 (대야동, 월드프라자)", "031-315-9977", "09:00~18:00");
 INSERT INTO hospital(BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("흥케이병원", "37.3699045006", "126.8079016338", "내과, 신경과, 정형외과, 신경외과, 마취통증의학과, 영상의학과, 재활의학과, 가정의학과", "경기도 시흥시 능곡번영길 22, 5~7층 전체호 (능곡동)", "031-314-7575", "09:00~18:00");
+
+create table user (
+	userId int primary key auto_increment,
+  userName text,
+	phoneNum text, 
+	rrNum text
+);
+
+insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "010-1111-2222", "991111-2222333");
