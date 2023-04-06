@@ -6,7 +6,7 @@ import db_connect
 app = Flask(__name__)
 CORS(app)
 
-login = Blueprint('login', __name__)
+login = Blueprint('login/member', __name__)
 
 @login.route('/login', methods=['GET', 'POST'])
 def Login():
