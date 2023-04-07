@@ -8,7 +8,7 @@ CORS(app)
 
 login = Blueprint('login/member', __name__)
 
-@login.route('/login', methods=['GET', 'POST'])
+@login.route('/login/member', methods=['GET', 'POST'])
 def Login():
     sql = "select * from user;"
     conn = db_connect.ConnectDB(sql)
