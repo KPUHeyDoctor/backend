@@ -22,7 +22,7 @@ for j in range(len(data)):
     
 
     # init.sql 파일에 INSERT 문 추가합니다
-    with open('init2.sql', 'a') as f:
+    with open('init.sql', 'a') as f:
         f.write(f'\nINSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("{SIGUN_NM}", "{BIZPLC_NM}", "{REFINE_WGS84_LAT}", "{REFINE_WGS84_LOGT}", "{TREAT_SBJECT_CONT_INFO}", "{REFINE_ROADNM_ADDR}", "{LOCPLC_FACLT_TELNO_DTLS}", "{HOS_TIME}");')
 
 # db와의 연결을 종료합니다.
