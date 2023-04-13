@@ -3,6 +3,7 @@ USE HeyDoctor
 
 CREATE TABLE hospital (
   HOS_ID int primary key auto_increment,
+  SIGUN_NM text,
   BIZPLC_NM text,
   REFINE_ROADNM_ADDR text,
   REFINE_WGS84_LAT text,
