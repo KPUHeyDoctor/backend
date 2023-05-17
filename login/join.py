@@ -9,7 +9,7 @@ CORS(app)
 
 join = Blueprint('join', __name__)
 
-@join.route('/join/member', methods=['GET', 'POST'])
+@join.route('api/join/member', methods=['GET', 'POST'])
 def Join():
     # 요청에서 phoneNum, rrNum을 가져옵니다.
     userName = request.json.get('userName')
