@@ -10,7 +10,7 @@ CORS(app)
 join = Blueprint('/api/join', __name__)
 
 @join.route('/api/join/member', methods=['GET', 'POST'])
-def Join():
+def join():
     # 요청에서 phoneNum, rrNum을 가져옵니다.
     userName = request.json.get('userName')
     phoneNum = request.json.get('phoneNum')
@@ -25,15 +25,11 @@ def Join():
     rrNum = AESCipher.aes.encrypt(rrNum)
 
     # 데이터베이스에 연결합니다.
-    conn = db_connect.ConnectDB(sql)
-    val = (userName, phoneNum, rrNum)
-    conn.execute_val(sql, val)
-
-    # print("userName : ", userName)
-    # print("phoneNum : ", phoneNum)
-    # print("rrNum : ", rrNum)
+    conn = db_connect.ConnectDB()
+    conn.execute(sql, (userName, phoneNum, rrNum))
+    conn.commit()
 
     # 연결을 닫습니다.
-    del conn
+    conn.close()
 
-    return 'ok'
+    return {'message': 'ok'}
