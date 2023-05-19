@@ -17,19 +17,27 @@ class ConnectDB:
                                     autocommit=True)  # DB와 연결합니다.
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)  # sql문 수행을 위해 cursor 객체를 생성합니다.
 
-    def execute(self, *args):
-        conn = pymysql.connect(host='db', user='heydoctor', password='password', db='HeyDoctor')
-        cursor = conn.cursor()
-        cursor.execute(self.sql, args)
-        conn.commit()
-        cursor.close()
-        conn.close()
+    # def execute(self, *args):
+    #     conn = pymysql.connect(host='db', user='heydoctor', password='password', db='HeyDoctor')
+    #     cursor = conn.cursor()
+    #     cursor.execute(self.sql, args)
+    #     conn.commit()
+    #     cursor.close()
+    #     conn.close()
 
-    # 결과 반환
+    # # 결과 반환
+    # def fetch(self):
+    #     self.data = self.curs.fetchall()  # sql결과를 반환합니다.
+    #     # self.data = json.dumps(self.data, ensure_ascii=False, indent=4) # 딕셔너리형 데이터를 json 형식으로 변환합니다.
+    #     return self.data  # 결과값을 저장합니다.
+    def execute(self, *args):
+        self.curs.execute(self.sql, args)
+        self.conn.commit()
+
     def fetch(self):
-        self.data = self.curs.fetchall()  # sql결과를 반환합니다.
-        # self.data = json.dumps(self.data, ensure_ascii=False, indent=4) # 딕셔너리형 데이터를 json 형식으로 변환합니다.
-        return self.data  # 결과값을 저장합니다.
+        self.curs.execute(self.sql)
+        self.data = self.curs.fetchall()
+        return self.data
 
     # 인스턴스 삭제
     def __del__(self):
