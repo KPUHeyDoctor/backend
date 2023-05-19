@@ -27,7 +27,7 @@ def join_route():
     # 데이터베이스에 연결합니다.
     conn = db_connect.ConnectDB(sql)
     val = (userName, phoneNum, rrNum)
-    conn.execute_val(sql, val)
+    conn.execute(sql, val)
 
 
     # print("userName : ", userName)
