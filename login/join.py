@@ -25,9 +25,10 @@ def join_route():
     rrNum = AESCipher.aes.encrypt(rrNum)
 
     # 데이터베이스에 연결합니다.
-    conn = db_connect.ConnectDB()
+    conn = db_connect.ConnectDB(sql)
     conn.execute(sql, userName, phoneNum, rrNum)
     conn.commit()
+
 
     # print("userName : ", userName)
     # print("phoneNum : ", phoneNum)
