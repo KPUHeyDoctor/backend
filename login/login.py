@@ -2,7 +2,7 @@ from flask import Flask, request, Blueprint, jsonify
 from flask import session
 from flask_cors import CORS
 from datetime import timedelta
-
+import AES.AESCipher as AESCipher
 import db_connect
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ login = Blueprint('/api', __name__)
 def Login():
     phoneNum = request.json.get('phoneNum')
     rrNum = request.json.get('rrNum')
-
+    rrNum = AESCipher.aes.encrypt(rrNum)
     sql = f"SELECT * FROM user WHERE phoneNum='{phoneNum}' AND rrNum='{rrNum}'"
     conn = db_connect.ConnectDB(sql)
     conn.execute()
