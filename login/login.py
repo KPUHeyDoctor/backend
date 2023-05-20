@@ -30,6 +30,4 @@ def Login():
 @app.route('/api/logout', methods=['POST'])
 def logout():
     phoneNum = request.json.get('phoneNum')
-    # 로그아웃 요청 처리 코드
-    session.pop('logged_in', None) # 세션에서 로그인 정보 삭제
     return jsonify({'message': 'Logout successful!'})
