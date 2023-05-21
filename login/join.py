@@ -10,7 +10,7 @@ CORS(app)
 join = Blueprint('/api/join', __name__)
 
 @join.route('/api/join/member', methods=['GET', 'POST'])
-def join_route():
+def join_member():
     userName = request.json.get('userName')
     phoneNum = request.json.get('phoneNum')
     rrNum = request.json.get('rrNum')
@@ -27,6 +27,24 @@ def join_route():
 
     conn = db_connect.ConnectDB(sql)
     conn.execute(userName, phoneNum, rrNum)
+
+    del conn
+
+    return {'message': 'ok'}
+
+@join.route('/api/join/enterprise', methods=['GET', 'POST'])
+def join_enterprise():
+    enterpriseName = request.json.get('enterpriseName')
+    enterpriseId = request.json.get('enterpriseId')
+    enterprisePw = request.json.get('enterprisePw')
+
+    if is_duplicate_enterpriseId(enterpriseId):
+        return jsonify({'error': 'Id already exists.'})
+
+    sql = 'INSERT INTO enterprise (enterpriseName, enterpriseId, enterprisePw) VALUES (%s, %s, %s);'
+
+    conn = db_connect.ConnectDB(sql)
+    conn.execute(enterpriseName, enterpriseId, enterprisePw)
 
     del conn
 
@@ -50,6 +68,18 @@ def is_duplicate_rr(rrNum):
     cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM user WHERE rrNum = %s', (rrNum,))
+    result = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return result is not None
+
+def is_duplicate_enterpriseId(enterpriseId):
+    conn = db_connect.ConnectDB.connect()  
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM enterprise WHERE enterpriseId = %s', (enterpriseId,))
     result = cursor.fetchone()
 
     cursor.close()

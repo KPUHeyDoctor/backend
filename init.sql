@@ -96,4 +96,10 @@ create table user (
 	rrNum text
 );
 
-insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "010-1111-2222", "991111-2222333");
+create table enterprise (
+	enterpkId int primary key auto_increment,
+  enterpriseName text,
+	enterpriseId text, 
+	enterprisePw text
+);
+
