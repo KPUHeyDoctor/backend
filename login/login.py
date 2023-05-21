@@ -18,13 +18,11 @@ def Login():
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     users = conn.fetch()
-    user = users[0]
-    userName = user['userName']
-
-    if user:
+    
+    try:
+        user = users[0]
+        userName = user['userName']
         del conn
         return jsonify({'userName': userName})
-    
-    else:
-        return {'message': 'Invalid credentials!'}
-    
+    except IndexError:
+        return jsonify({'message': 'Invalid credentials!'})

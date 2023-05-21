@@ -7,7 +7,7 @@ CORS(app)
 
 logout = Blueprint('/api/logout', __name__)
 
-@app.route('/api/logout/member', methods=['POST'])
+@logout.route('/api/logout/member', methods=['POST'])
 def logout_member():
     phoneNum = request.json.get('phoneNum')
     return {'message': 'Logout successful!'}
