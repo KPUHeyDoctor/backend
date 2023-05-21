@@ -1,7 +1,5 @@
 from flask import Flask, request, Blueprint, jsonify
-from flask import session
 from flask_cors import CORS
-from datetime import timedelta
 import AES.AESCipher as AESCipher
 import db_connect
 
@@ -22,13 +20,15 @@ def Login():
     users = conn.fetch()
     user = users[0]
     userName = user['userName']
-    del conn
 
     if user:
+        del conn
         return jsonify({'userName': userName})
+    
     else:
         return jsonify({'message': 'Invalid credentials!'})
     
+
 @app.route('/api/logout', methods=['POST'])
 def logout():
     phoneNum = request.json.get('phoneNum')

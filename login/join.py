@@ -1,4 +1,4 @@
-from flask import Flask, request, Blueprint, jsonify
+from flask import Flask, request, Blueprint
 from flask_cors import CORS
 
 import AES.AESCipher as AESCipher
