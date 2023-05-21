@@ -26,5 +26,5 @@ def Login():
         return jsonify({'userName': userName})
     
     else:
-        return jsonify({'message': 'Invalid credentials!'})
+        return {'message': 'Invalid credentials!'}
     

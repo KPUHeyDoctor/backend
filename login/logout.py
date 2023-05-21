@@ -10,4 +10,4 @@ logout = Blueprint('/api/logout', __name__)
 @app.route('/api/logout/member', methods=['POST'])
 def logout_member():
     phoneNum = request.json.get('phoneNum')
-    return jsonify({'message': 'Logout successful!'})
+    return {'message': 'Logout successful!'}
