@@ -5,9 +5,9 @@ app = Flask(__name__)
 app.secret_key = 'mysecretkey'
 CORS(app)
 
-login = Blueprint('/api', __name__)
+logout = Blueprint('/api/logout', __name__)
 
-@app.route('/api/logout', methods=['POST'])
-def logout():
+@app.route('/api/logout/member', methods=['POST'])
+def logout_member():
     phoneNum = request.json.get('phoneNum')
     return jsonify({'message': 'Logout successful!'})

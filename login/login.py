@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = 'mysecretkey'
 CORS(app)
 
-login = Blueprint('/api', __name__)
+login = Blueprint('/api/login', __name__)
 
 @login.route('/api/login/member', methods=['GET', 'POST'])
 def Login():
@@ -28,8 +28,3 @@ def Login():
     else:
         return jsonify({'message': 'Invalid credentials!'})
     
-
-@app.route('/api/logout', methods=['POST'])
-def logout():
-    phoneNum = request.json.get('phoneNum')
-    return jsonify({'message': 'Logout successful!'})
