@@ -20,10 +20,11 @@ def Login():
     conn = db_connect.ConnectDB(sql)
     conn.execute()
     user = conn.fetch()
+    userName = user['userName']
     del conn
 
     if user:
-        return jsonify({'message': 'Login successful!'})
+        return jsonify({'userName': userName})
     else:
         return jsonify({'message': 'Invalid credentials!'})
     
