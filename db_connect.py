@@ -30,3 +30,7 @@ class ConnectDB:
     def __del__(self):
         self.curs.close  # cursor 객체를 닫습니다.
         self.conn.close  # DB연결을 해제합니다.
+
+    def connect():
+            return pymysql.connect(host='db', user='heydoctor', password='password', db='HeyDoctor', charset='utf8',
+                                autocommit=True)  # Connect to the MySQL database.
