@@ -19,7 +19,8 @@ def Login():
     sql = f"SELECT * FROM user WHERE phoneNum='{phoneNum}' AND rrNum='{rrNum}'"
     conn = db_connect.ConnectDB(sql)
     conn.execute()
-    user = conn.fetch()
+    users = conn.fetch()
+    user = users[0]
     userName = user['userName']
     del conn
 
