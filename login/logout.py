@@ -11,3 +11,8 @@ logout = Blueprint('/api/logout', __name__)
 def logout_member():
     phoneNum = request.json.get('phoneNum')
     return {'message': 'Logout successful!'}
+
+@logout.route('/api/logout/enterprise', methods=['POST'])
+def logout_enterprise():
+    phoneNum = request.json.get('enterpriseId')
+    return {'message': 'Logout successful!'}
