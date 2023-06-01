@@ -21,6 +21,9 @@ class ConnectDB:
         self.curs.execute(self.sql, args)
         self.conn.commit()
 
+    def execute(self):
+        self.curs.execute(self.sql, self.args)
+        
     def fetch(self):
         self.curs.execute(self.sql)
         self.data = self.curs.fetchall()
