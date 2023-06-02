@@ -25,7 +25,7 @@ def home():
 def Nae():
     sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%내과%";'
     conn = db_connect.ConnectDB(sql)
-    conn.execute()
+    conn.execute_c()
     data_nae = conn.fetch()
     del conn
 
@@ -37,7 +37,7 @@ def Nae():
 def Ebin():
     sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%이비인후과%";'
     conn = db_connect.ConnectDB(sql)
-    conn.execute()
+    conn.execute_c()
     data_ebin = conn.fetch()
     del conn
 
@@ -49,7 +49,7 @@ def Ebin():
 def Kids():
     sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%소아과%";'
     conn = db_connect.ConnectDB(sql)
-    conn.execute()
+    conn.execute_c()
     data_kids = conn.fetch()
     del conn
 
@@ -61,7 +61,7 @@ def Kids():
 def Bone():
     sql = 'select * from hospital where TREAT_SBJECT_CONT_INFO like "%정형외과%";'
     conn = db_connect.ConnectDB(sql)
-    conn.execute()
+    conn.execute_c()
     data_bone = conn.fetch()
     del conn
     

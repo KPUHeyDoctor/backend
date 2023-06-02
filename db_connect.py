@@ -17,11 +17,13 @@ class ConnectDB:
                                     autocommit=True)  # DB와 연결합니다.
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)  # sql문 수행을 위해 cursor 객체를 생성합니다.
 
-    def execute(self):
-        self.curs.execute(self.sql, self.args)
     
     def execute(self, *args):
         self.curs.execute(self.sql, args)
+        self.conn.commit()
+    
+    def execute_c(self, *args):
+        self.curs.execute(self.sql, *args)
         self.conn.commit()
         
     def fetch(self):
@@ -31,8 +33,8 @@ class ConnectDB:
 
     # 인스턴스 삭제
     def __del__(self):
-        self.curs.close  # cursor 객체를 닫습니다.
-        self.conn.close  # DB연결을 해제합니다.
+        self.curs.close()  # cursor 객체를 닫습니다.
+        self.conn.close()  # DB연결을 해제합니다.
 
     def connect():
             return pymysql.connect(host='db', user='heydoctor', password='password', db='HeyDoctor', charset='utf8',
