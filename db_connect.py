@@ -17,12 +17,12 @@ class ConnectDB:
                                     autocommit=True)  # DB와 연결합니다.
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)  # sql문 수행을 위해 cursor 객체를 생성합니다.
 
+    def execute(self):
+        self.curs.execute(self.sql, self.args)
+    
     def execute(self, *args):
         self.curs.execute(self.sql, args)
         self.conn.commit()
-
-    def execute(self):
-        self.curs.execute(self.sql, self.args)
         
     def fetch(self):
         self.curs.execute(self.sql)
