@@ -103,5 +103,5 @@ create table enterprise (
 	enterprisePw text
 );
 
-insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
+-- insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
 insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
