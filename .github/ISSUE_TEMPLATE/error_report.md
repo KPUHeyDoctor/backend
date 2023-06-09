@@ -1,13 +1,4 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
----
-
----
 name: 오류 수정
 about: 오류 설명 및 수정
 title: '[fix]'
@@ -16,7 +7,7 @@ assignees: ''
 ---
 
 ## 🤔 오류 내용
-[fix] 오류수정내용
+
 오류 내용 및 오류 발생 상황을 알려주세요!
 <br>
 
