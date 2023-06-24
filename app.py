@@ -5,7 +5,8 @@ from api.categories import categories
 from login.join import join
 from login.login import login
 from login.logout import logout
-
+from reservation.reservation import reservation
+from history.history import history
 app = Flask(__name__)
 CORS(app)
 
@@ -15,6 +16,8 @@ app.register_blueprint(api_detail)
 app.register_blueprint(join)
 app.register_blueprint(login)
 app.register_blueprint(logout)
+app.register_blueprint(reservation)
+app.register_blueprint(history)
 
 
 
