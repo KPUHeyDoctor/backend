@@ -11,7 +11,7 @@ history = Blueprint('history', __name__)
 def history_user():
     userName = request.args.get('userName')
 
-    sql = f'SELECT doctor.dockerName AS doctorname, userHistory.historyTime, CAST(userHistory.historyBoolean AS UNSIGNED) AS historyBoolean \
+    sql = f'SELECT doctor.doctorName AS doctorname, userHistory.historyTime, CAST(userHistory.historyBoolean AS UNSIGNED) AS historyBoolean \
             FROM user \
             INNER JOIN userHistory ON user.userId = userHistory.userId \
             INNER JOIN doctor ON userHistory.doctorId = doctor.doctorId \
@@ -35,7 +35,7 @@ def history_user():
 def history_enterprise():
     enterpriseName = request.args.get('enterpriseName')
 
-    sql = f'SELECT doctor.dockerName AS doctorname, user.userName AS username, userHistory.historyTime, CAST(userHistory.historyBoolean AS UNSIGNED) AS historyBoolean \
+    sql = f'SELECT doctor.doctorName AS doctorname, user.userName AS username, userHistory.historyTime, CAST(userHistory.historyBoolean AS UNSIGNED) AS historyBoolean \
             FROM user \
             INNER JOIN userHistory ON user.userId = userHistory.userId \
             INNER JOIN doctor ON userHistory.doctorId = doctor.doctorId \
@@ -70,7 +70,7 @@ def change_history():
             INNER JOIN doctor ON userHistory.doctorId = doctor.doctorId \
             SET historyBoolean = true \
             WHERE user.userName = "{username}" \
-            AND doctor.dockerName = "{doctorname}" \
+            AND doctor.doctorName = "{doctorname}" \
             AND userHistory.historyTime = "{historyTime}";'
 
     db = ConnectDB(sql)
