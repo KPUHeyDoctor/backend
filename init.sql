@@ -102,9 +102,6 @@ create table enterprise (
 	enterprisePw text
 );
 
--- insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
-insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
-
 create table doctor (
     doctorId int primary key auto_increment,
     dockerName text,
@@ -124,3 +121,15 @@ create table userHistory (
 	foreign key(userId) REFERENCES user (userId),
 	foreign key(doctorId) REFERENCES doctor (doctorId)
 );
+insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
+insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
+
+-- doctor 테이블에 데이터 삽입
+INSERT INTO doctor (dockerName, doctorMedical, doctorField, doctorTime, enterpkId)
+VALUES ('김의사', '내과', '소화기 질환', '주간', 1);
+
+-- userHistory 테이블에 데이터 삽입
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:00', true, 1, 1);
+
+-- userHistory 테이블에 데이터 삽입
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:30', false, 1, 1);
