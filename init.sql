@@ -104,3 +104,23 @@ create table enterprise (
 
 -- insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
 insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
+
+create table doctor (
+    doctorId int primary key auto_increment,
+    dockerName text,
+    doctorMedical text,
+    doctorField text,
+    doctorTime text,
+    enterpkId int,
+    foreign key(enterpkId) REFERENCES enterprise (enterpkId)
+);
+
+create table userHistory (
+	historyId int primary key auto_increment,
+	historyTime text,
+	historyBoolean boolean,
+	userId int,
+	doctorId int,
+	foreign key(userId) REFERENCES user (userId),
+	foreign key(doctorId) REFERENCES doctor (doctorId)
+);
