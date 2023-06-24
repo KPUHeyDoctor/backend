@@ -104,7 +104,7 @@ create table enterprise (
 
 create table doctor (
     doctorId int primary key auto_increment,
-    dockerName text,
+    doctorName text,
     doctorMedical text,
     doctorField text,
     doctorTime text,
@@ -125,7 +125,7 @@ insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", 
 insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
 
 -- doctor 테이블에 데이터 삽입
-INSERT INTO doctor (dockerName, doctorMedical, doctorField, doctorTime, enterpkId)
+INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkId)
 VALUES ('김의사', '내과', '소화기 질환', '주간', 1);
 
 -- userHistory 테이블에 데이터 삽입
