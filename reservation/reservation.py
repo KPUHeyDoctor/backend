@@ -37,12 +37,19 @@ def Doctor():
 def Detail():
     data = request.get_json()
 
-    try:
-        usernames = [item['username'] for item in data]
-        username_count = len(usernames)
-        return jsonify({'count':username_count})
-    except:
-        return "Invalid request"
+    doctorId = data.get('doctorId')
+    historyTime = data.get('historyTime')
+
+    sql = f"SELECT COUNT(*) AS count\
+            FROM userHistory\
+            WHERE doctorId = '{doctorId}' AND historyTime = '{historyTime}';"
+   
+    conn = ConnectDB(sql)
+    conn.execute()
+    result = conn.fetch()
+    del conn
+
+    return result
 
 
 app.register_blueprint(reservation, url_prefix='/api/reservation')
