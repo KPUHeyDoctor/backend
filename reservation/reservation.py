@@ -33,16 +33,39 @@ def Doctor():
 
     return jsonify(result)
 
+# @reservation.route('/api/reservation/doctor/detail', methods=['POST'])
+# def Detail():
+#     data = request.get_json()
+
+#     doctorId = data.get('doctorId')
+#     historyTime = data.get('historyTime')
+
+#     sql = f"SELECT COUNT(*) AS count\
+#             FROM userHistory\
+#             WHERE doctorId = '{doctorId}' AND historyTime = '{historyTime}';"
+   
+#     conn = ConnectDB(sql)
+#     conn.execute()
+#     result = conn.fetch()
+#     del conn
+
+#     return result
+
 @reservation.route('/api/reservation/doctor/detail', methods=['POST'])
 def Detail():
     data = request.get_json()
 
-    doctorId = data.get('doctorId')
+    doctorName = data.get('doctorname')
+    # doctorId = data.get('doctorId')
     historyTime = data.get('historyTime')
 
     sql = f"SELECT COUNT(*) AS count\
             FROM userHistory\
-            WHERE doctorId = '{doctorId}' AND historyTime = '{historyTime}';"
+            WHERE doctorId IN (\
+                SELECT doctorId\
+                FROM doctor\
+                WHERE doctorName = '{doctorName}'\
+            ) AND historyTime = '{historyTime}';"
    
     conn = ConnectDB(sql)
     conn.execute()
