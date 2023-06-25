@@ -121,12 +121,25 @@ create table userHistory (
 	foreign key(userId) REFERENCES user (userId),
 	foreign key(doctorId) REFERENCES doctor (doctorId)
 );
-insert into user(userName, phoneNum, rrNum) VALUES ("홍길동", "01011112222", "9911112222333");
+-- insert data into user table
+insert into user(userName, phoneNum, rrNum) VALUES ("조준호", "01011112222", "9911112222333");
+insert into user(userName, phoneNum, rrNum) VALUES ("박영식", "01033334444", "9900224411223");
+insert into user(userName, phoneNum, rrNum) VALUES ("안윤주", "01055556666", "0011920112322");
+
+-- insert data into enterprise table
 insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("한사랑요양병원", "123123", "123123");
+insert into enterprise(enterpriseName, enterpriseId, enterprisePw) VALUES ("강남병원", "1111", "3333");
 
 -- doctor 테이블에 데이터 삽입
 INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkId)
-VALUES ('김의사', '내과', '소화기 질환', '주간', 1);
+VALUES ('김의사', '내과', '소화기 질환', '매주 수요일 휴무', 1);
+
+INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkId)
+VALUES ('조준호', '이비인후과', '인후통 질환', '매주 수요일 휴무', 1);
+INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkId)
+VALUES ('박영식', '정형외과', '골절 수술', '매주 목요일 휴무', 1);
+INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkId)
+VALUES ('안윤주', '소아과', '소아 수술', '매주 금요일 휴무', 1);
 
 -- userHistory 테이블에 데이터 삽입
 INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:00', true, 1, 1);
