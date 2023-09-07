@@ -1,4 +1,4 @@
-의료법인 남촌의료재단 시화병원
+
 CREATE DATABASE IF NOT EXISTS HeyDoctor;
 USE HeyDoctor
 
