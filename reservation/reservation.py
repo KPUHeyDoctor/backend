@@ -21,13 +21,64 @@ def Doctor2():
     return jsonify(result)
 
 
+# @reservation.route('/api/reservation/doctor/detail', methods=['POST'])
+# def Detail():
+#     data = request.get_json()
+
+#     doctorName = data.get('doctorname')
+#     # doctorId = data.get('doctorId')
+#     username = data.get('username')
+#     historyTime = data.get('historyTime')
+
+#     sql = f"SELECT COUNT(*) AS count\
+#             FROM userHistory\
+#             WHERE doctorId IN (\
+#                 SELECT doctorId\
+#                 FROM doctor\
+#                 WHERE doctorName = '{doctorName}'\
+#             ) AND historyTime = '{historyTime}';"
+    
+#     conn = ConnectDB(sql)
+#     conn.execute()
+#     result = conn.fetch()
+#     del conn
+
+#     return result
+
+
 @reservation.route('/api/reservation/doctor/detail', methods=['POST'])
 def Detail():
     data = request.get_json()
 
     doctorName = data.get('doctorname')
-    # doctorId = data.get('doctorId')
+    userName = data.get('username')
     historyTime = data.get('historyTime')
+    historyBoolean = False
+
+    # doctorName과 userName을 사용하여 doctorId와 userId를 찾는 쿼리 실행
+    select_query = """
+        SELECT
+            d.doctorId AS doctorId,
+            u.userId AS userId
+        FROM
+            doctor AS d
+        INNER JOIN
+            user AS u ON d.doctorName = %s AND u.userName = %s
+        """
+    conn = ConnectDB(select_query)
+    conn.execute(select_query, (doctorName, userName))
+    result = conn.fetch()
+
+    if result:
+        user_id, doctor_id = result[0]
+
+        # userHistory에 데이터 삽입
+        insert_query = """
+        INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId)
+        VALUES (%s, %s, %s, %s)
+        """
+        conn.execute(insert_query, (historyTime, historyBoolean, user_id, doctor_id))
+    del conn
 
     sql = f"SELECT COUNT(*) AS count\
             FROM userHistory\
@@ -36,39 +87,12 @@ def Detail():
                 FROM doctor\
                 WHERE doctorName = '{doctorName}'\
             ) AND historyTime = '{historyTime}';"
-   
+    
     conn = ConnectDB(sql)
     conn.execute()
-    result = conn.fetch()
+    cnt_result = conn.fetch()
     del conn
 
-    return result
-
-# # url='api/reservation?enterpriseName=한사랑요양병원' 일 때 사용한 코드
-# @reservation.route('/api/reservation')
-# def Reservation():
-#     enterpriseName = request.args.get('enterpriseName')
-    
-#     sql = f"SELECT doctorName, doctorMedical FROM doctor\
-#         INNER JOIN enterprise ON doctor.enterpkId = enterprise.enterpkId\
-#         WHERE enterprise.enterpriseName = '{enterpriseName}';"
-    
-#     db = ConnectDB(sql)
-#     result = db.fetch()
-    
-#     return jsonify(result)
-
-# # url='api/reservation/doctor?doctorName=김의사' 일 때 사용한 코드
-# @reservation.route('/api/reservation/doctor')
-# def Doctor():
-#     doctorName = request.args.get('doctorName')
-#     sql = f"select * from doctor where doctorName='{doctorName}';"
-
-#     conn = ConnectDB(sql)
-#     conn.execute()
-#     result = conn.fetch()
-#     del conn
-
-#     return jsonify(result)
+    return cnt_result
 
 app.register_blueprint(reservation, url_prefix='/api/reservation')
