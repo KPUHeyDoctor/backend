@@ -1,3 +1,4 @@
+의료법인 남촌의료재단 시화병원
 CREATE DATABASE IF NOT EXISTS HeyDoctor;
 USE HeyDoctor
 
@@ -38,10 +39,10 @@ INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, T
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥더봄요양병원", "37.4422280039", "126.7893522131", "내과, 신경과, 외과, 정형외과, 신경외과, 심장혈관흉부외과, 마취통증의학과, 소아청소년과, 피부과, 재활의학과, 가정의학과, 응급의학과, 한방내과, 한방부인과, 한방소아과, 한방안·이비인후·피부과, 한방신경정신과, 한방재활의학과, 사상체질과, 침구과", "경기도 시흥시 비둘기공원1길 7, 시흥21세기병원 1, 2, 4-8층 (대야동)", "031-317-9990", "09:00~00:00");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥미소한방병원", "37.4397949", "126.7853508", "신경과, 내과, 가정의학과, 재활의학과, 사상체질과, 한방소아과, 한방안·이비인후·피부과, 침구과, 한방부인과, 한방신경정신과, 한방재활의학과, 한방내과", "경기도 시흥시 신천3길 5-1 (신천동)", "031-365-5432", "09:00~18:00");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥미소한방병원", "37.4399149017", "126.7854289209", "마취통증의학과, 한방내과, 한방부인과, 한방소아과, 한방안·이비인후·피부과, 한방신경정신과, 한방재활의학과, 사상체질과, 침구과", "경기도 시흥시 삼미시장1길 5-1 (신천동)", "031-365-4255", "09:00~00:00");
-INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥배곧병원", "37.3671759068", "126.7282075179", "내과, 신경과, 외과, 정형외과, 신경외과, 마취통증의학과, 소아청소년과, 이비인후과, 피부과, 비뇨의학과, 영상의학과, 재활의학과, 가정의학과, 응급의학과", "경기도 시흥시 서울대학로264번길 44-4, 에스프라자 3,4,5층 301~311, 401~412, 509~511호 (정왕동)", "031-435-7575", "00:00~00:00");
+INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥배곧병원", "37.3671759068", "126.7282075179", "내과, 신경과, 외과, 정형외과, 신경외과, 마취통증의학과, 소아청소년과, 이비인후과, 피부과, 비뇨의학과, 영상의학과, 재활의학과, 가정의학과, 응급의학과", "경기도 시흥시 서울대학로264번길 44-4, 에스프라자 3,4,5층 301~311, 401~412, 509~511호 (정왕동)", "031-435-7575", "00:00~23:59");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "의료법인 나누리의료재단 효성한방병원", "37.4422499113", "126.7914998721", "가정의학과, 한방내과, 한방부인과, 한방소아과, 한방안·이비인후·피부과, 한방신경정신과, 한방재활의학과, 사상체질과, 침구과", "경기도 시흥시 비둘기공원6길 13-1, 월드프라자 8층 (대야동)", "031-315-2577", "09:00~00:00");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥서울대효요양병원", "37.3688925451", "126.8090289918", "내과, 신경과, 외과, 마취통증의학과, 재활의학과, 가정의학과, 한방내과", "경기도 시흥시 승지로59번길 12, 시티타워 5~8층 (능곡동)", "031-8099-9114", "09:00~18:00");
-INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "의료법인 남촌의료재단 시화병원", "37.3499087489", "126.7370103825", "내과, 신경과, 정신건강의학과, 외과, 정형외과, 신경외과, 심장혈관흉부외과, 마취통증의학과, 산부인과, 소아청소년과, 영상의학과, 진단검사의학과, 재활의학과, 가정의학과, 직업환경의학과, 응급의학과, 예방의학과, 통합치의학과", "경기도 시흥시 군자천로 381, 시화병원 (정왕동)", "1811-7000", "00:00~00:00");
+INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "의료법인 남촌의료재단 시화병원", "37.3499087489", "126.7370103825", "내과, 신경과, 정신건강의학과, 외과, 정형외과, 신경외과, 심장혈관흉부외과, 마취통증의학과, 산부인과, 소아청소년과, 영상의학과, 진단검사의학과, 재활의학과, 가정의학과, 직업환경의학과, 응급의학과, 예방의학과, 통합치의학과", "경기도 시흥시 군자천로 381, 시화병원 (정왕동)", "1811-7000", "00:00~23:59");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥성모병원", "37.4383778", "126.7888804", "사상체질과, 한방재활의학과, 침구과, 한방신경정신과, 한방안·이비인후·피부과, 한방소아과, 한방부인과, 한방내과, 영상의학과, 응급의학과, 마취통증의학과, 산부인과, 성형외과, 정형외과, 가정의학과, 안과, 재활의학과, 신경과, 신경외과, 외과, 피부과, 이비인후과, 소아청소년과, 내과", "경기도 시흥시 수인로3325번길 5 (신천동)", "", "09:00~00:00");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "의료법인 녹향의료재단 신천연합병원", "37.4449686532", "126.7894393407", "내과, 신경과, 정신건강의학과, 외과, 정형외과, 신경외과, 마취통증의학과, 산부인과, 소아청소년과, 영상의학과, 진단검사의학과, 가정의학과, 직업환경의학과, 응급의학과, 치과, 치주과", "경기도 시흥시 복지로 57, 복지로 61, 2층 (대야동)", "031-310-6300", "09:00~18:00");
 INSERT INTO hospital(SIGUN_NM, BIZPLC_NM, REFINE_WGS84_LAT, REFINE_WGS84_LOGT, TREAT_SBJECT_CONT_INFO, REFINE_ROADNM_ADDR, LOCPLC_FACLT_TELNO_DTLS, HOS_TIME) VALUES ("시흥시", "시흥솔병원", "37.4439490409", "126.7907603419", "내과, 정형외과, 신경외과, 이비인후과, 재활의학과, 가정의학과", "경기도 시흥시 비둘기공원로 10, 301,501,601,701.801호 (대야동)", "031-314-7582", "09:00~18:00");
@@ -149,3 +150,9 @@ INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES (
 
 -- userHistory 테이블에 데이터 삽입
 INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:30', false, 1, 1);
+
+-- userHistory 테이블에 데이터 삽입
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:00', true, 1, 2);
+
+-- userHistory 테이블에 데이터 삽입
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:30', false, 1, 2);
