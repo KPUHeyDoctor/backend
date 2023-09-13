@@ -145,13 +145,11 @@ INSERT INTO doctor (doctorName, doctorMedical, doctorField, doctorTime, enterpkI
 VALUES ('이홍규', '이비인후과', '고려대학교 졸업, 이비인후과, 진료분야 : 비과학, 수면의학, 수면호흡장애 (코골이/폐쇄성 수면무호흡증 등)', '매주 금요일 휴무', 2);
 
 -- userHistory 테이블에 데이터 삽입
-INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:00', true, 1, 1);
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', true, 3, 5);
 
 -- userHistory 테이블에 데이터 삽입
-INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:30', false, 1, 1);
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', true, 2, 5);
 
 -- userHistory 테이블에 데이터 삽입
-INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:00', true, 1, 2);
-
--- userHistory 테이블에 데이터 삽입
-INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('11:30', false, 1, 2);
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', false, 1, 5)
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:30', false, 1, 5);
