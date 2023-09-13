@@ -151,5 +151,5 @@ INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES (
 INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', true, 2, 5);
 
 -- userHistory 테이블에 데이터 삽입
-INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', false, 1, 5)
+INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:00', false, 1, 5);
 INSERT INTO userHistory (historyTime, historyBoolean, userId, doctorId) VALUES ('20:30', false, 1, 5);
